@@ -24,6 +24,16 @@ export default function Check() {
         if (mode === "fail") return item.score < 50;
     });
 
+    /* เพิ่มข้อมูล */
+    const Adddata = () => {
+        const newItem = {
+            name: "A",
+            score: 20
+        };
+
+        setData([...data, newItem]); /* setData(prev => [...prev, newItem]); */
+    };
+
     return (
         <div>
             <h1>Name:</h1>
@@ -57,6 +67,8 @@ export default function Check() {
             <button onClick={() => setMode("pass")} className="bg-green-500 text-white p-2 m-3">Pass</button>
             <button onClick={() => setMode("fail")} className="bg-red-500 text-white p-2 m-3">Fail</button>
 
+            {/* กดเพิ่มข้อมูล */}
+            <button onClick={Adddata} className="bg-red-500 text-white p-2 m-3">Add data</button>
 
             {/* แสดงข้อมูลที่กรองแล้ว (condition) ? "Value if True" : "Value if False" */}
             {filteredData.length > 0 ? (filteredData.map((item, index) => (
